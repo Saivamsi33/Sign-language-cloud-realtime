@@ -1,4 +1,4 @@
-#Sign language detection in realtime in localhost using FastAPi
+#Sign language detection in realtime in localhost using FastAPi#
 
 So, this is like a 2nd version of my previous project on sign language. The same trained model weights are used in this project as well. 
 
