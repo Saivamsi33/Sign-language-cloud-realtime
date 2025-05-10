@@ -1,0 +1,9 @@
+streamlit
+ultralytics
+opencv-python
+Pillow
+torch
+streamlit-webrtc
+fastapi
+uvicorn[standard]
+websockets

@@ -1,0 +1,123 @@
+/* Modern, colorful style for sign language detection app */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #4e54c8 0%, #8f94fb 100%);
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0 12px 0;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 2px 8px rgba(78,84,200,0.08);
+}
+
+#logo {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #4e54c8;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 32px 0;
+}
+
+.video-section {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.video-container {
+    position: relative;
+    width: 640px;
+    height: 480px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(78,84,200,0.18);
+    background: #fff;
+    border: 3px solid #4e54c8;
+}
+
+#video, #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+#video {
+    z-index: 1;
+}
+
+#canvas {
+    z-index: 10; /* Much higher z-index to ensure it's on top */
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.info-panel {
+    background: rgba(255,255,255,0.85);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(78,84,200,0.10);
+    padding: 24px 32px;
+    min-width: 260px;
+    max-width: 320px;
+}
+.info-panel h2 {
+    color: #4e54c8;
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+.info-panel ul {
+    padding-left: 18px;
+    margin: 0;
+    color: #333;
+}
+.info-panel li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 18px 0 10px 0;
+    color: #fff;
+    background: rgba(78,84,200,0.7);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+footer a {
+    color: #14ebd2;
+    text-decoration: none;
+    font-weight: 500;
+}
+footer a:hover {
+    text-decoration: underline;
+}

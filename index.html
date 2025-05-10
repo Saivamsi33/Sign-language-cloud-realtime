@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Detection</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/optima-nova-lt-pro');
+        
+        h1 {
+            font-family: 'Optima Nova', 'Optima', 'Segoe UI', sans-serif;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #121212;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Enhanced Header with Fixed Gradient */
+        header {
+            padding: 1.5rem;
+            text-align: center;
+            background: rgba(20, 20, 20, 0.8);
+            border-bottom: 1px solid rgb(33, 32, 33);
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 6vw, 2.9rem);
+            font-family: 'Optima Nova LT Pro', 'Optima', 'Segoe UI', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin: 0;
+            background: linear-gradient(90deg, #14ebd2, #8f22e2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+
+        /* Glow Effect */
+        h1::after {
+            content: 'Sign Language Detection';
+            font-family: 'Optima Nova LT Pro', 'Optima', 'Segoe UI', sans-serif;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #14ebd2, #8f22e2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.5;
+        }
+
+        /* Rest of your CSS remains unchanged */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .video-container {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            flex-shrink: 0;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 480px;
+        }
+
+        .reference-image {
+            max-height: 100%;
+            max-width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .reference-image img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        video, canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            font-family: 'Optima Nova LT Pro', 'Optima', 'Segoe UI', sans-serif;
+            padding: 1rem;
+            text-align: center;
+            background: rgba(20, 20, 20, 0.8);
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+            
+            .video-container {
+                width: 100%;
+                max-width: 640px;
+                height: auto;
+                aspect-ratio: 4/3;
+            }
+            
+            .image-container {
+                height: auto;
+                width: 100%;
+                max-width: 640px;
+            }
+            
+            .reference-image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1/1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+            
+            .content-wrapper {
+                gap: 1rem;
+            }
+            
+            h1 {
+                padding: 0.3rem 0.6rem;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sign Language Detection</h1>
+    </header>
+    <main>
+        <div class="content-wrapper">
+            <div class="video-container">
+                <video id="video" autoplay muted playsinline></video>
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="image-container">
+                <div class="reference-image">
+                    <img src="/static/sign_logo.png" alt="Sign Language Reference">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <span>Powered by <a href="https://ultralytics.com/yolov8" target="_blank">YOLOv8</a> | &copy; 2025</span>
+    </footer>
+    <script src="/static/client.js"></script>
+</body>
+</html>
